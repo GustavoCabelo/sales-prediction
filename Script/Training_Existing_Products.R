@@ -163,26 +163,29 @@ library(magrittr)
       }
         
 
-#Predicting Volume on Products
+#Predicting Volume on New Products
 {
-#Pre-Processing Predictive dataset
-  {
+
   #Remove ProductTypes that are not desired####
   print(new_products$ProductType)
   new_products <- new_products[which(new_products$ProductType %in% producttypes),] #<--- keep only product types that are the scope of this analysis
       }
-##Predictions of Volume
+
+  ## Volume Prediction
   {
     Predictions <- predict(RFFit, newdata=new_products[keeps])
     new_products$Volume <- round(Predictions)
     View(new_products)
   }
   
-###Calculate Revenue  
+
+  ###Calculate Revenue  
   {
     new_products$Revenue  <- round((new_products$Price*new_products$ProfitMargin*new_products$Volume),digits = 2)
 
     }
+
+
 ####Save Predictions in CSV
   {
     write.csv(new_products, paste0(getwd(),"/new_products_Prediction.csv"), row.names = FALSE)
