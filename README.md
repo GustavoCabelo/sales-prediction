@@ -8,4 +8,4 @@ The goals of this analysis is:
 Files:
 
 - existingproductattributes: files with 80 existing products and 17 independent variables and 1 dependent (volume). Used for training and modeling
-- newproductattributes: same 17 independent variables and volume as the variable to be predicted. For validation.
+- newproductattributes: 13 new products, same 17 independent variables and volume as the variable to be predicted. For validation.
